@@ -11,16 +11,18 @@ class Example:
         
         
 
-# my_object = Example()
 
-# pickle_out = open('example.pkl', 'wb')
+def main():
+    example = Example()
+    with open('test_pickle.pkl', 'wb') as f:
+        pickle.dump(example, f, -1)
 
-# pickle.dump(my_object, pickle_out)
+if __name__=='__main__':
+    main()
 
-# pickle_out.close()
 
 
-pickle_in = open('example.pkl', 'rb')
+# pickle_in = open('example.pkl', 'rb')
 
-example = pickle.load(pickle_in)
-print(type(example))
+# example = pickle.load(pickle_in)
+# print(type(example))
