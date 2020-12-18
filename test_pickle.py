@@ -1,14 +1,34 @@
 import pickle
-import pickling
-from pickling import Example
+import cleaning
+from cleaning import Process
 
+test = open('test_pickle.pkl', 'rb')
+methods = pickle.load(test)
+
+print(methods.encode_col('ZZ'))
+print(methods.encode_col('AA'))
+print(methods.encode_col('D'))
+
+test.close()
 if __name__=='__main__':
-    with open('test_pickle.pkl', 'rb') as f:
-        users = pickle.load(f)
-        print(users.dic)
+    print('inside test_pickle')
         
         
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # pickle_in = open('example.pkl', 'rb')
 
