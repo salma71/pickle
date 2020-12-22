@@ -1,6 +1,11 @@
+# custom_unpickling.py
+import pickle
+
 import pickle
 import functools
-import math
+
+import multiprocessing as mp
+from math import sqrt
 
 class Process:
     
@@ -31,32 +36,25 @@ class Process:
         # don't pickle the parameter fun.
         del state['fun']
         return state
-    
+
     def __setstate__(self, state):
         self.__dict__.update(state)
+        self.fun = lambda x: x + x
 
-       
+# my_foobar_instance = Process()
+# my_pickle_string = pickle.dumps(my_foobar_instance)
+# my_new_instance = pickle.loads(my_pickle_string)
+# print(my_new_instance.__dict__)
+# print(my_new_instance.encode_col('ZZ'))
+
+
 def main():
-    a = Process()
-    print(a.__dict__)
-    with open('test_pickle.pkl', 'wb') as f:
-        pickle.dump(a, f, -1)
+    t = Process()
+    print(t.__dict__)
+    with open('test_unpickle.pkl', 'wb') as f:
+        pickle.dump(t, f, -1)
         f.close()
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
-
-
-
-# pickle_in = open('example.pkl', 'rb')
-
-# example = pickle.load(pickle_in)
-# print(type(example))

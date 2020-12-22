@@ -1,17 +1,17 @@
 import pickle
 import cleaning
-from cleaning import Process
+from custom_unpickling import Process
 
-test = open('test_pickle.pkl', 'rb')
+test = open('test_unpickle.pkl', 'rb')
 methods = pickle.load(test)
+test.close()
 
+print(methods.__dict__)
 print(methods.encode_col('ZZ'))
-print(methods.encode_col('AA'))
-print(methods.encode_col('D'))
 
 test.close()
 if __name__=='__main__':
-    print('inside test_pickle')
+    print('inside test_unpickle')
         
         
 
